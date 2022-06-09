@@ -1,0 +1,160 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+@include mat.core();
+$Recipe-primary: mat.define-palette(mat.$indigo-palette);
+$Recipe-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$Recipe-warn: mat.define-palette(mat.$red-palette);
+
+$Recipe-theme: mat.define-light-theme((
+  color: (
+    primary: $Recipe-primary,
+    accent: $Recipe-accent,
+    warn: $Recipe-warn,
+  ),
+));
+
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Red Hat Display'
+);
+
+@include angular-material-typography($custom-typography);
+@include mat.all-component-themes($Recipe-theme);
+
+body {
+  height: 100%;
+  margin: 0;
+  background: #FFFEFC;
+}
+
+.child-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  row-gap: 30px;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 18px;
+}
+
+.title {
+  color: #243569;
+  font-size: 28px;
+}
+
+
+.button-box {
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+}
+
+.search {
+  width: 380px;
+}
+
+button[disabled] {
+  background: gray!important;
+}
+button {
+  width: 120px;
+  height: 42px;
+  font-size: 17px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+
+
+
+  &.confirm-button {
+    background: #243569;
+    color: white;
+    justify-content: center;
+    transition-duration: 0.1s;
+
+    &:hover {
+      background: #363D8D;
+      transition-duration: 0.1s;
+    }
+  }
+
+  &.delete-button {
+    justify-content: space-evenly;
+    color: white;
+    background: #eb162e;
+
+  }
+  &.cancel-button {
+    color: #243569;
+    background: none;
+    border: solid 2px #243569;
+    justify-content: center;
+    transition-duration: 0.1s;
+
+    &:hover {
+      background: #243569;
+      color: white;
+      transition-duration: 0.1s;
+    }
+  }
+  &.modify-button {
+    background: #243569;
+    color: white;
+    justify-content: space-evenly;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    color: white;
+    font-size: 22px;
+  }
+}
+
+.error-snackbar {
+  background: #ee3838;
+  color: white;
+}
+
+.valid-snackbar {
+  background: #243569;
+  color: white;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0!important;
+}
+
+.title-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .delete {
+    cursor: pointer;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    color: #ee3838;
+    font-size: 33px;
+  }
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+

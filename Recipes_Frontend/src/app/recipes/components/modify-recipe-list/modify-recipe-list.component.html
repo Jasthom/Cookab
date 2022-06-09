@@ -1,0 +1,62 @@
+<div class="add-page">
+  <div class="title-box">
+    <span class="title">Modifier une recette</span>
+    <span class="delete material-symbols-outlined" (click)="onDelete()">delete</span>
+  </div>
+  <div class="recipe-add-header">
+    <div class="add-image-container">
+      <span class="subtitle">Choisir une image</span>
+      <div class="add-img">
+        <label for="file-input">
+          <img [src]="image" alt="add"/>
+        </label>
+        <input id="file-input" type="file" (change)="onFileUpload($event)" />
+      </div>
+    </div>
+    <div class="recipe-info-container">
+      <span class="subtitle">Nom de la recette</span>
+      <form class="recipe-form-info" [formGroup]="recipeForm">
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Nom</mat-label>
+          <mat-icon matPrefix>text_fields</mat-icon>
+          <input maxlength="50" required matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Personnes</mat-label>
+          <mat-icon matPrefix>group</mat-icon>
+          <input required matInput type="number" min="1" max="99" formControlName="people">
+          <mat-error>Entrez une valeur entre 1 et 99</mat-error>
+        </mat-form-field>
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Temps</mat-label>
+          <mat-icon matPrefix>timer</mat-icon>
+          <input required matInput type="time" formControlName="time">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Filtrer les recettes</mat-label>
+          <mat-icon matPrefix>toc</mat-icon>
+          <mat-select required formControlName="typeId">
+            <mat-option *ngFor="let type of types" [value]="type.id">
+              {{ type.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <div class="recipe-container" >
+    <div class="ingredient-part">
+      <app-ingredients-form [recipe]="recipe" [units]="units" [ingredients]="ingredients" (newItemEvent)="setIngredient($event)"></app-ingredients-form>
+    </div>
+    <div class="step-part">
+      <app-steps-form [recipe]="recipe" (newItemEvent)="setStep($event)"></app-steps-form>
+    </div>
+  </div>
+
+  <div class="button-box">
+    <button class="cancel-button" routerLink="/recipes">Annuler</button>
+    <button class="confirm-button" [disabled]="recipeForm.invalid" (click)="onSubmitForm()">Valider</button>
+  </div>
+</div>
+

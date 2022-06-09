@@ -1,0 +1,12 @@
+<div matRipple matRippleColor="#b5b5b530" class="recipe-card" (click)="onViewRecipe()">
+  <div class="recipe-img">
+    <img [src]="recipe.image" alt="{{ recipe.name }}">
+  </div>
+  <div class="recipe-text">
+    <span class="recipe-name">{{ recipe.name }}</span>
+    <div class="recipe-time">
+      <span class="material-symbols-outlined">timer</span>
+      <span>{{ recipe.time | time }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.navbar {
+  border-bottom: black 2px solid;
+  height: 58px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: normal;
+    font-size: 25px;
+    color: White;
+    margin-left: 10px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    color: white;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 20px;
+
+    a {
+      color: black;
+      width: 170px;
+      text-decoration: none;
+      text-align: center;
+      &:hover {
+        font-weight: 500;
+      }
+    }
+    .active {
+      font-weight: 500;
+    }
+  }
+}

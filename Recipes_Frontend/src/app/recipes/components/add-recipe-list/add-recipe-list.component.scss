@@ -1,0 +1,70 @@
+.add-page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .recipe-add-header {
+    display: flex;
+    gap: 30px;
+
+    .add-image-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .add-img {
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        border-radius: 15px;
+
+        img {
+          height: 100%;
+          cursor: pointer;
+        }
+
+        &>input {
+          display: none;
+        }
+      }
+    }
+
+    .recipe-info-container {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+
+      .recipe-form-info {
+        display: flex;
+        flex-direction: column;
+
+      }
+    }
+  }
+
+  .recipe-container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+
+    .ingredient-part {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-part {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+  }
+
+  .button-box {
+    justify-content: center;
+  }
+}

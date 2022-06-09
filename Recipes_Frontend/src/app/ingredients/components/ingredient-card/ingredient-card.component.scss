@@ -1,0 +1,37 @@
+.ingredient-card {
+  background: #FFFFFF;
+  border-radius : 25px;
+  box-shadow: 2px 2px 9px -2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  width: 380px;
+  height: 90px;
+  gap: 10px;
+  cursor: pointer;
+
+  .ingredient-img {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    display: flex;
+    border-radius: 25px 0 0 25px;
+
+  }
+
+  .ingredient-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .ingredient-name {
+      font-size: 20px;
+      font-weight:bold ;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 271px;
+    }
+
+    .ingredient-category {
+      font-size: 18px;
+    }
+  }
+}

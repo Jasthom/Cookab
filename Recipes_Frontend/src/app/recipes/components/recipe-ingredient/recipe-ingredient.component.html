@@ -1,0 +1,12 @@
+<div class="ingredient">
+  <div class="ingredient-img">
+    <img [src]="ingredient.image" alt="{{ ingredient.name }}">
+  </div>
+  <div class="ingredient-info">
+    {{ingredient.name}}
+    <div class="ingredient-unit">
+      {{ingredient.quantity}}
+      {{ingredient.unit}}
+    </div>
+  </div>
+</div>

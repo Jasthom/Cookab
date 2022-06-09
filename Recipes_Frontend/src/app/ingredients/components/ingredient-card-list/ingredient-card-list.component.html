@@ -1,0 +1,31 @@
+<div class="child-container">
+  <div class="filter-container">
+    <mat-form-field class="search" appearance="outline">
+      <mat-label>Rechercher un ingrédient</mat-label>
+      <input maxlength="40" matInput (change)="onChange()" [(ngModel)]="nameSelected">
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Filtrer les ingrédients</mat-label>
+      <mat-icon matPrefix>toc</mat-icon>
+      <mat-select [(value)]="categorySelected" (valueChange)="onChange()">
+        <mat-option></mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div matRipple matRippleColor="#b5b5b530" class="add-ingredient-card" routerLink="add">
+    <div class="add-ingredient-header">
+      <span class="material-symbols-rounded">add_circle</span>
+    </div>
+    <div class="add-ingredient-text">
+      <span>Ajouter un ingrédient</span>
+    </div>
+  </div>
+
+  <app-ingredient-card *ngFor="let ingredient of ingredients" [ingredient]="ingredient">
+  </app-ingredient-card>
+</div>

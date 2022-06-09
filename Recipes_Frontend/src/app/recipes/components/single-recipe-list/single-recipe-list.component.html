@@ -1,0 +1,18 @@
+<div class="recipe-page">
+  <app-recipe-header [recipe]="recipe"></app-recipe-header>
+  <app-recipe-info [recipe]="recipe"></app-recipe-info>
+  <div class="container">
+    <span class="title">Ingrédients</span>
+    <app-recipe-ingredient-list [ingredients]="recipe.ingredients"></app-recipe-ingredient-list>
+  </div>
+  <div class="container">
+    <span class="title">Étapes</span>
+    <div class="steps-box">
+      <app-recipe-step-list [steps]="recipe.steps"></app-recipe-step-list>
+    </div>
+  </div>
+  <button class="modify-button" routerLink="modify">
+    <span class="material-symbols-outlined">edit</span>
+    Modifier
+  </button>
+</div>

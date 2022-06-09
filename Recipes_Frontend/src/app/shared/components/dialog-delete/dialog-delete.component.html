@@ -1,0 +1,22 @@
+<div class="dialog">
+  <span class="dialog-title" mat-dialog-title>{{data.title}}</span>
+
+  <mat-dialog-content>
+    <span>{{ data.desc }}</span>
+    <div class="dialog-content">
+      <div class="dialog-img">
+        <img [src]="data.image" alt="{{data.name}}">
+      </div>
+      <div class="dialog-info">
+        <span class="subtitle">{{data.name}}</span>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <div class="button-box">
+      <button class="cancel-button" mat-dialog-close="">Annuler</button>
+      <button class="confirm-button" (click)="onDelete(data)">Valider</button>
+    </div>
+  </mat-dialog-actions>
+</div>
