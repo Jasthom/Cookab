@@ -1,0 +1,79 @@
+DROP TABLE link_recipe;
+DROP TABLE ingredients;
+DROP TABLE unit;
+DROP TABLE step;
+DROP TABLE recipe;
+DROP TABLE type;
+DROP TABLE ingredient;
+DROP TABLE category;
+
+
+CREATE TABLE type (
+	id CHAR(2), 
+	name VARCHAR(100)
+);
+ALTER TABLE type ADD PRIMARY KEY (id);
+
+
+CREATE TABLE recipe (
+	id CHAR(15), 
+	name VARCHAR(254), 
+	time int,
+	id_type CHAR(2),
+	number_person int,
+	image LONGTEXT
+);
+ALTER TABLE recipe ADD PRIMARY KEY (id);
+ALTER TABLE recipe ADD CONSTRAINT FK_recipe_type FOREIGN KEY(id_type) REFERENCES type(id);
+
+CREATE TABLE step (
+	id CHAR(15),
+	id_recipe CHAR(15),
+	descr VARCHAR(600),
+	step_order INT
+);
+ALTER TABLE step ADD PRIMARY KEY (id);
+ALTER TABLE step ADD CONSTRAINT FK_step_recipe FOREIGN KEY(id_recipe) REFERENCES recipe(id);
+
+
+CREATE TABLE category (
+	id CHAR(2),
+	name VARCHAR(100)
+);
+ALTER TABLE category ADD PRIMARY KEY (id);
+
+
+CREATE TABLE ingredient (
+	id CHAR(15),
+	name VARCHAR(100),
+	id_category CHAR(2),
+	image LONGTEXT
+);
+ALTER TABLE ingredient ADD PRIMARY KEY (id);
+ALTER TABLE ingredient ADD CONSTRAINT FK_ingredient_category FOREIGN KEY(id_category) REFERENCES category(id);
+
+
+CREATE TABLE unit (
+	id CHAR(2),
+	name VARCHAR(100)
+);
+ALTER TABLE unit ADD PRIMARY KEY(id);
+
+CREATE TABLE ingredients (
+	id CHAR(15),
+	id_ingredient CHAR(15),
+	quantity DOUBLE,
+	id_unit CHAR(2)
+);
+ALTER TABLE ingredients ADD CONSTRAINT FK_ingredients_unit FOREIGN KEY(id_unit) REFERENCES unit(id);
+ALTER TABLE ingredients ADD CONSTRAINT FK_ingredients_ingredient FOREIGN KEY(id_ingredient) REFERENCES ingredient(id);
+ALTER TABLE ingredients ADD PRIMARY KEY(id);
+
+CREATE TABLE link_recipe (
+	id_ingredients CHAR(15),
+	id_recipe CHAR(15)
+);
+ALTER TABLE link_recipe ADD CONSTRAINT FK_link_recipe_recipe FOREIGN KEY(id_recipe) REFERENCES recipe(id);
+ALTER TABLE link_recipe ADD CONSTRAINT FK_link_recipe_ingredients FOREIGN KEY(id_ingredients) REFERENCES ingredients(id);
+ALTER TABLE link_recipe ADD PRIMARY KEY(id_ingredients, id_recipe);
+
